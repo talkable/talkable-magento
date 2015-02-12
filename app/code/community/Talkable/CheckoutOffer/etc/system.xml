@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Talkable CheckoutOffer for Magento
+ *
+ * @package     Talkable_CheckoutOffer
+ * @author      Talkable (http://www.talkable.com/)
+ * @copyright   Copyright (c) 2015 Talkable (http://www.talkable.com/)
+ * @license     MIT
+ */
+-->
+<config>
+    <tabs>
+        <talkable translate="label" module="checkoutoffer">
+            <label>Talkable</label>
+            <sort_order>1000</sort_order>
+        </talkable>
+    </tabs>
+    <sections>
+        <checkoutoffer translate="label" module="checkoutoffer">
+            <label>Extension Options</label>
+            <tab>talkable</tab>
+            <sort_order>1000</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+
+            <groups>
+                <settings translate="label">
+                    <label>Default Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+
+                    <fields>
+                        <site_id translate="label">
+                            <label>Talkable Site ID</label>
+                            <comment></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </site_id>
+
+                        <campaign_tags translate="label">
+                            <label>Campaign Tags</label>
+                            <comment><![CDATA[CSV-list of campaign tags]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </campaign_tags>
+                    </fields>
+                </settings>
+            </groups>
+        </checkoutoffer>
+    </sections>
+</config>

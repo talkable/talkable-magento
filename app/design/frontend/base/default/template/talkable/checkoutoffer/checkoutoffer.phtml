@@ -1,0 +1,38 @@
+<?php
+/**
+ * Talkable CheckoutOffer for Magento
+ *
+ * @package     Talkable_CheckoutOffer
+ * @author      Talkable (http://www.talkable.com/)
+ * @copyright   Copyright (c) 2015 Talkable (http://www.talkable.com/)
+ * @license     MIT
+ */
+?>
+<!-- Begin Talkable integration code -->
+
+<?php if (empty($this->getSiteId())): ?>
+  <!-- Talkable Site ID is blank, check your Talkable extension settings -->
+<?php else: ?>
+  <?php if ($this->getOrderId()): ?>
+  <script>
+  //<![CDATA[
+    var _curebitq = _curebitq || [];
+    _curebitq.push(["init", {
+      site_id: "<?php echo $this->getSiteId() ?>",
+      server: "https://www.talkable.com"
+    }]);
+
+    <?php $_event_data = $this->getOrderData() ?>
+    <?php $_event_data["responsive"] = true ?>
+    <?php $_event_data["traffic_source"] = "Post-checkout" ?>
+    <?php $_event_data["campaign_tags"] = $this->getCampaignTags() ?>
+
+    _curebitq.push(["register_purchase", <?php echo Mage::helper("core")->jsonEncode($_event_data) ?>]);
+  //]]>
+  </script>
+  <?php else: ?>
+  <!-- Order could not be found -->
+  <?php endif ?>
+<?php endif ?>
+
+<!-- End Talkable integration code -->
