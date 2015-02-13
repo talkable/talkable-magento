@@ -8,31 +8,38 @@
  * @license     MIT
  */
 ?>
-<!-- Begin Talkable integration code -->
 
-<?php if (empty($this->getSiteId())): ?>
-  <!-- Talkable Site ID is blank, check your Talkable extension settings -->
-<?php else: ?>
-  <?php if ($this->getOrderId()): ?>
-  <script>
-  //<![CDATA[
-    var _curebitq = _curebitq || [];
-    _curebitq.push(["init", {
-      site_id: "<?php echo $this->getSiteId() ?>",
-      server: "https://www.talkable.com"
-    }]);
+<?php $_helper = $this->helper("checkoutoffer") ?>
 
-    <?php $_event_data = $this->getOrderData() ?>
-    <?php $_event_data["responsive"] = true ?>
-    <?php $_event_data["traffic_source"] = "Post-checkout" ?>
-    <?php $_event_data["campaign_tags"] = $this->getCampaignTags() ?>
+<?php if ($_helper->isEnabled()): ?>
+    <!-- Begin Talkable integration code -->
 
-    _curebitq.push(["register_purchase", <?php echo Mage::helper("core")->jsonEncode($_event_data) ?>]);
-  //]]>
-  </script>
-  <?php else: ?>
-  <!-- Order could not be found -->
-  <?php endif ?>
+    <?php if (empty($_helper->getSiteId())): ?>
+        <!-- Talkable Site ID is blank, check your Talkable extension settings -->
+    <?php else: ?>
+        <?php if ($_order = $this->getCheckoutOrder()): ?>
+            <script type="text/javascript" src="//d2jjzw81hqbuqv.cloudfront.net/integration/curebit-1.0.min.js"></script>
+            <script type="text/javascript">
+            //<![CDATA[
+              var _curebitq = _curebitq || [];
+              _curebitq.push(["init", {
+                site_id: '<?php echo $_helper->getSiteId() ?>',
+                server: "https://www.talkable.com"
+              }]);
+
+              <?php $_event_data = $_helper->getOrderData($_order) ?>
+              <?php $_event_data["responsive"] = true ?>
+              <?php $_event_data["traffic_source"] = "Post-checkout" ?>
+              <?php $_event_data["campaign_tags"] = $_helper->getCampaignTags() ?>
+
+              _curebitq.push(["register_purchase", <?php echo Mage::helper("core")->jsonEncode($_event_data) ?>]);
+            //]]>
+            </script>
+        <?php else: ?>
+            <!-- Order could not be found -->
+        <?php endif ?>
+    <?php endif ?>
+
+    <!-- End Talkable integration code -->
 <?php endif ?>
 
-<!-- End Talkable integration code -->

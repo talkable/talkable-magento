@@ -43,6 +43,7 @@
     <default>
         <checkoutoffer>
             <settings>
+                <enabled>0</enabled>
                 <site_id></site_id>
                 <campaign_tags>default</campaign_tags>
             </settings>
