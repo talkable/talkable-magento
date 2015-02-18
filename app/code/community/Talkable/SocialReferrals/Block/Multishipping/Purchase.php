@@ -1,14 +1,14 @@
 <?php
 /**
- * Talkable CheckoutOffer for Magento
+ * Talkable SocialReferrals for Magento
  *
- * @package     Talkable_CheckoutOffer
+ * @package     Talkable_SocialReferrals
  * @author      Talkable (http://www.talkable.com/)
  * @copyright   Copyright (c) 2015 Talkable (http://www.talkable.com/)
  * @license     MIT
  */
 
-class Talkable_CheckoutOffer_Block_Multishipping_Checkoutoffer extends Mage_Checkout_Block_Multishipping_Success
+class Talkable_SocialReferrals_Block_Multishipping_Purchase extends Mage_Checkout_Block_Multishipping_Success
 {
 
     public function getCheckoutOrder()

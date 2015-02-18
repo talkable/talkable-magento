@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Talkable SocialReferrals for Magento
+ *
+ * @package     Talkable_SocialReferrals
+ * @author      Talkable (http://www.talkable.com/)
+ * @copyright   Copyright (c) 2015 Talkable (http://www.talkable.com/)
+ * @license     MIT
+ */
+-->
+<config>
+    <modules>
+        <Talkable_SocialReferrals>
+            <version>0.1.1</version>
+        </Talkable_SocialReferrals>
+    </modules>
+
+    <global>
+        <blocks>
+            <socialreferrals>
+                <class>Talkable_SocialReferrals_Block</class>
+            </socialreferrals>
+        </blocks>
+
+        <helpers>
+            <socialreferrals>
+                <class>Talkable_SocialReferrals_Helper</class>
+            </socialreferrals>
+        </helpers>
+    </global>
+
+    <frontend>
+        <routers>
+            <socialreferrals>
+                <use>standard</use>
+                <args>
+                    <module>Talkable_SocialReferrals</module>
+                    <frontName>share</frontName>
+                </args>
+            </socialreferrals>
+        </routers>
+
+        <layout>
+            <updates>
+                <socialreferrals>
+                    <file>talkable/socialreferrals.xml</file>
+                </socialreferrals>
+            </updates>
+        </layout>
+    </frontend>
+
+    <default>
+        <socialreferrals>
+            <general>
+                <site_id></site_id>
+            </general>
+
+            <purchase>
+                <enabled>0</enabled>
+                <campaign_tags>default</campaign_tags>
+            </purchase>
+
+            <affiliate>
+                <enabled>0</enabled>
+                <campaign_tags>default</campaign_tags>
+                <iframe_responsive>1</iframe_responsive>
+                <iframe_container>talkable-container</iframe_container>
+                <iframe_width>100%</iframe_width>
+                <iframe_height>960</iframe_height>
+            </affiliate>
+        </socialreferrals>
+    </default>
+</config>

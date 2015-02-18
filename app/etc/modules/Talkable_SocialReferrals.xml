@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!--
 /**
- * Talkable CheckoutOffer for Magento
+ * Talkable SocialReferrals for Magento
  *
- * @package     Talkable_CheckoutOffer
+ * @package     Talkable_SocialReferrals
  * @author      Talkable (http://www.talkable.com/)
  * @copyright   Copyright (c) 2015 Talkable (http://www.talkable.com/)
  * @license     MIT
@@ -11,9 +11,9 @@
 -->
 <config>
     <modules>
-        <Talkable_CheckoutOffer>
+        <Talkable_SocialReferrals>
             <active>true</active>
             <codePool>community</codePool>
-        </Talkable_CheckoutOffer>
+        </Talkable_SocialReferrals>
     </modules>
 </config>

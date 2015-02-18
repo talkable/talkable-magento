@@ -1,40 +1,40 @@
 <?php
 /**
- * Talkable CheckoutOffer for Magento
+ * Talkable SocialReferrals for Magento
  *
- * @package     Talkable_CheckoutOffer
+ * @package     Talkable_SocialReferrals
  * @author      Talkable (http://www.talkable.com/)
  * @copyright   Copyright (c) 2015 Talkable (http://www.talkable.com/)
  * @license     MIT
  */
 ?>
 
-<?php $_helper = $this->helper("checkoutoffer") ?>
+<?php $_helper = $this->helper("socialreferrals") ?>
 
-<?php if ($_helper->isEnabled()): ?>
+<?php if ($_helper->isPurchaseEnabled()): ?>
     <!-- Begin Talkable integration code -->
 
     <?php if (empty($_helper->getSiteId())): ?>
         <!-- Talkable Site ID is blank, check your Talkable extension settings -->
     <?php else: ?>
         <?php if ($_order = $this->getCheckoutOrder()): ?>
-            <script type="text/javascript" src="//d2jjzw81hqbuqv.cloudfront.net/integration/curebit-1.0.min.js"></script>
             <script type="text/javascript">
             //<![CDATA[
               var _curebitq = _curebitq || [];
               _curebitq.push(["init", {
-                site_id: '<?php echo $_helper->getSiteId() ?>',
+                site_id: "<?php echo $_helper->getSiteId() ?>",
                 server: "https://www.talkable.com"
               }]);
 
-              <?php $_event_data = $_helper->getOrderData($_order) ?>
+              <?php $_event_data = $_helper->getPurchaseData($_order) ?>
               <?php $_event_data["responsive"] = true ?>
               <?php $_event_data["traffic_source"] = "Post-checkout" ?>
-              <?php $_event_data["campaign_tags"] = $_helper->getCampaignTags() ?>
+              <?php $_event_data["campaign_tags"] = $_helper->getPurchaseCampaignTags() ?>
 
               _curebitq.push(["register_purchase", <?php echo Mage::helper("core")->jsonEncode($_event_data) ?>]);
             //]]>
             </script>
+            <script type="text/javascript" src="//d2jjzw81hqbuqv.cloudfront.net/integration/curebit-1.0.min.js"></script>
         <?php else: ?>
             <!-- Order could not be found -->
         <?php endif ?>
@@ -42,4 +42,3 @@
 
     <!-- End Talkable integration code -->
 <?php endif ?>
-

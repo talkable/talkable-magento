@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Talkable SocialReferrals for Magento
+ *
+ * @package     Talkable_SocialReferrals
+ * @author      Talkable (http://www.talkable.com/)
+ * @copyright   Copyright (c) 2015 Talkable (http://www.talkable.com/)
+ * @license     MIT
+ */
+-->
+<layout version="0.1.0">
+    <checkout_onepage_success>
+        <reference name="before_body_end">
+            <block type="socialreferrals/purchase" name="talkable.socialreferrals.purchase" template="talkable/socialreferrals/register_purchase.phtml" />
+        </reference>
+    </checkout_onepage_success>
+
+    <checkout_multishipping_success>
+        <reference name="before_body_end">
+            <block type="socialreferrals/multishipping_purchase" name="talkable.socialreferrals.multishipping_purchase" template="talkable/socialreferrals/register_purchase.phtml" />
+        </reference>
+    </checkout_multishipping_success>
+
+    <socialreferrals_index_index>
+        <reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+
+        <reference name="content">
+            <block type="socialreferrals/affiliate" name="talkable.socialreferrals.affiliate" template="talkable/socialreferrals/register_affiliate.phtml" />
+        </reference>
+    </socialreferrals_index_index>
+</layout>
