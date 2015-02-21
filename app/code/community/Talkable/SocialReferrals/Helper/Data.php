@@ -100,16 +100,21 @@ class Talkable_SocialReferrals_Helper_Data extends Mage_Core_Helper_Abstract
         );
     }
 
-    public function getAffiliateData($customer)
+    public function getAffiliateData()
     {
-        return array(
-            "affiliate_member" => array(
+        $helper = Mage::helper("customer");
+
+        if ($helper->isLoggedIn()) {
+            $customer = $helper->getCustomer();
+            return array("affiliate_member" => array(
                 "email"       => $customer->getEmail(),
                 "first_name"  => $customer->getFirstname(),
                 "last_name"   => $customer->getLastname(),
                 "customer_id" => $customer->getId(),
-            ),
-        );
+            ));
+        } else {
+            return array("affiliate_member" => array());
+        }
     }
 
     //---------+

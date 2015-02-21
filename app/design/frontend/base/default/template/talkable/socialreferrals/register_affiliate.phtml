@@ -17,7 +17,6 @@
     <?php if (empty($_helper->getSiteId())): ?>
         <!-- Talkable Site ID is blank, check your Talkable extension settings -->
     <?php else: ?>
-        <?php $_customer = $this->helper("customer")->getCustomer() ?>
         <div id="talkable-container"></div>
         <script type="text/javascript">
         //<![CDATA[
@@ -27,7 +26,7 @@
             server: "https://www.talkable.com"
           }]);
 
-          <?php $_event_data = array_merge($_helper->getAffiliateData($_customer), $_helper->getAffiliateIframeOptions()) ?>
+          <?php $_event_data = array_merge($_helper->getAffiliateData(), $_helper->getAffiliateIframeOptions()) ?>
           <?php $_event_data["campaign_tags"] = $_helper->getAffiliateCampaignTags() ?>
 
           _curebitq.push(["register_affiliate", <?php echo Mage::helper("core")->jsonEncode($_event_data) ?>]);
