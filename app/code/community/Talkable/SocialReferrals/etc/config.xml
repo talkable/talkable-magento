@@ -12,7 +12,7 @@
 <config>
     <modules>
         <Talkable_SocialReferrals>
-            <version>0.1.3</version>
+            <version>0.1.4</version>
         </Talkable_SocialReferrals>
     </modules>
 
@@ -28,6 +28,12 @@
                 <class>Talkable_SocialReferrals_Helper</class>
             </socialreferrals>
         </helpers>
+
+        <models>
+            <socialreferrals>
+                <class>Talkable_SocialReferrals_Model</class>
+            </socialreferrals>
+        </models>
     </global>
 
     <frontend>
@@ -39,7 +45,27 @@
                     <frontName>share</frontName>
                 </args>
             </socialreferrals>
+
+            <customer>
+                <args>
+                    <modules>
+                        <socialreferrals before="Mage_Customer">Talkable_SocialReferrals_Customer</socialreferrals>
+                    </modules>
+                </args>
+            </customer>
         </routers>
+
+        <events>
+            <controller_action_layout_load_before>
+                <observers>
+                    <socialreferrals_controller_action_layout_load_before>
+                        <type>singleton</type>
+                        <class>socialreferrals/observer</class>
+                        <method>customerDashboardLink</method>
+                    </socialreferrals_controller_action_layout_load_before>
+                </observers>
+            </controller_action_layout_load_before>
+        </events>
 
         <layout>
             <updates>
@@ -69,6 +95,15 @@
                 <iframe_width>100%</iframe_width>
                 <iframe_height>960</iframe_height>
             </affiliate>
+
+            <dashboard>
+                <enabled>0</enabled>
+                <campaign_tags>default</campaign_tags>
+                <iframe_responsive>1</iframe_responsive>
+                <iframe_container>talkable-container</iframe_container>
+                <iframe_width>100%</iframe_width>
+                <iframe_height>960</iframe_height>
+            </dashboard>
         </socialreferrals>
     </default>
 </config>

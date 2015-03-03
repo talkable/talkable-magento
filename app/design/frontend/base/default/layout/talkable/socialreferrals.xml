@@ -12,13 +12,13 @@
 <layout version="0.1.0">
     <checkout_onepage_success>
         <reference name="before_body_end">
-            <block type="socialreferrals/purchase" name="talkable.socialreferrals.purchase" template="talkable/socialreferrals/register_purchase.phtml" />
+            <block type="socialreferrals/purchase" name="talkable.socialreferrals.purchase" template="talkable/socialreferrals/post_purchase.phtml" />
         </reference>
     </checkout_onepage_success>
 
     <checkout_multishipping_success>
         <reference name="before_body_end">
-            <block type="socialreferrals/multishipping_purchase" name="talkable.socialreferrals.multishipping_purchase" template="talkable/socialreferrals/register_purchase.phtml" />
+            <block type="socialreferrals/multishipping_purchase" name="talkable.socialreferrals.multishipping_purchase" template="talkable/socialreferrals/post_purchase.phtml" />
         </reference>
     </checkout_multishipping_success>
 
@@ -28,7 +28,25 @@
         </reference>
 
         <reference name="content">
-            <block type="socialreferrals/affiliate" name="talkable.socialreferrals.affiliate" template="talkable/socialreferrals/register_affiliate.phtml" />
+            <block type="socialreferrals/affiliate" name="talkable.socialreferrals.affiliate" template="talkable/socialreferrals/invite.phtml" />
         </reference>
     </socialreferrals_index_index>
+
+    <customer_dashboard_index>
+        <update handle="customer_account"/>
+
+        <reference name="my.account.wrapper">
+            <block type="socialreferrals/customer_dashboard" name="talkable.socialreferrals.customer_dashboard" template="talkable/socialreferrals/dashboard.phtml" />
+        </reference>
+    </customer_dashboard_index>
+
+    <customer_dashboard_handle>
+        <reference name="customer_account_navigation">
+            <action method="addLink" module="customer">
+                <name>customer_dashboard</name>
+                <path>customer/dashboard/</path>
+                <label>Referral Dashboard</label>
+            </action>
+        </reference>
+    </customer_dashboard_handle>
 </layout>

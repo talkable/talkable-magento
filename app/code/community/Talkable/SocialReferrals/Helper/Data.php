@@ -20,9 +20,9 @@ class Talkable_SocialReferrals_Helper_Data extends Mage_Core_Helper_Abstract
         return $this->_getTextConfigValue("general/site_id");
     }
 
-    //---------------------------+
-    // Post-Checkout Integration |
-    //---------------------------+
+    //------------------------+
+    // Post-Checkout Campaign |
+    //------------------------+
 
     /**
      * @return bool Whether or not Post-Checkout Integration is enabled
@@ -63,9 +63,9 @@ class Talkable_SocialReferrals_Helper_Data extends Mage_Core_Helper_Abstract
         return $retval;
     }
 
-    //------------------------+
-    // Standalone Integration |
-    //------------------------+
+    //-----------------+
+    // Invite Campaign |
+    //-----------------+
 
     /**
      * @return bool Whether or not Standalone Integration is enabled
@@ -82,22 +82,7 @@ class Talkable_SocialReferrals_Helper_Data extends Mage_Core_Helper_Abstract
 
     public function getAffiliateIframeOptions()
     {
-        $width  = $this->_getTextConfigValue("affiliate/iframe_width");
-        $width  = strpos($width, "%") !== false ? $width : (int) $width;
-
-        $height = $this->_getTextConfigValue("affiliate/iframe_height");
-        $height = strpos($height, "%") !== false ? $height : (int) $height;
-
-        $container = $this->_getTextConfigValue("affiliate/iframe_container");
-
-        return array(
-            "responsive" => $this->_getBoolConfigValue("affiliate/iframe_responsive"),
-            "iframe"     => array(
-                "container" => $container ? $container : "talkable-container",
-                "width"     => $width     ? $width     : "100%",
-                "height"    => $height    ? $height    : 960,
-            ),
-        );
+        return $this->_getIntegrationIframeOptions("affiliate");
     }
 
     public function getAffiliateData()
@@ -117,6 +102,28 @@ class Talkable_SocialReferrals_Helper_Data extends Mage_Core_Helper_Abstract
         }
     }
 
+    //--------------------+
+    // Dashboard Campaign |
+    //--------------------+
+
+    /**
+     * @return bool Whether or not Dashboard Integration is enabled
+     */
+    public function isDashboardEnabled()
+    {
+        return $this->_getBoolConfigValue("dashboard/enabled");
+    }
+
+    public function getDashboardCampaignTags()
+    {
+        return $this->_getListConfigValue("dashboard/campaign_tags");
+    }
+
+    public function getDashboardIframeOptions()
+    {
+        return $this->_getIntegrationIframeOptions("dashboard");
+    }
+
     //---------+
     // Private |
     //---------+
@@ -134,6 +141,26 @@ class Talkable_SocialReferrals_Helper_Data extends Mage_Core_Helper_Abstract
     private function _getTextConfigValue($path)
     {
         return trim(Mage::getStoreConfig("socialreferrals/" . $path));
+    }
+
+    private function _getIntegrationIframeOptions($path)
+    {
+        $width  = $this->_getTextConfigValue($path . "/iframe_width");
+        $width  = strpos($width, "%") !== false ? $width : (int) $width;
+
+        $height = $this->_getTextConfigValue($path . "/iframe_height");
+        $height = strpos($height, "%") !== false ? $height : (int) $height;
+
+        $container = $this->_getTextConfigValue($path . "/iframe_container");
+
+        return array(
+            "responsive" => $this->_getBoolConfigValue($path . "/iframe_responsive"),
+            "iframe"     => array(
+                "container" => $container ? $container : "talkable-container",
+                "width"     => $width     ? $width     : "100%",
+                "height"    => $height    ? $height    : 960,
+            ),
+        );
     }
 
 }
