@@ -14,14 +14,14 @@
 <?php if ($_helper->isAffiliateEnabled()): ?>
     <!-- Begin Talkable integration code -->
 
-    <?php if (empty($_helper->getSiteId())): ?>
+    <?php if ($_helper->getSiteId() == ""): ?>
         <!-- Talkable Site ID is blank, check your Talkable extension settings -->
     <?php else: ?>
         <div id="talkable-container"></div>
         <script type="text/javascript">
         //<![CDATA[
-          var _curebitq = _curebitq || [];
-          _curebitq.push(["init", {
+          var _talkableq = _talkableq || [];
+          _talkableq.push(["init", {
             site_id: "<?php echo $_helper->getSiteId() ?>",
             server: "https://www.talkable.com"
           }]);
@@ -29,10 +29,10 @@
           <?php $_event_data = array_merge($_helper->getAffiliateData(), $_helper->getAffiliateIframeOptions()) ?>
           <?php $_event_data["campaign_tags"] = $_helper->getAffiliateCampaignTags() ?>
 
-          _curebitq.push(["register_affiliate", <?php echo Mage::helper("core")->jsonEncode($_event_data) ?>]);
+          _talkableq.push(["register_affiliate", <?php echo Mage::helper("core")->jsonEncode($_event_data) ?>]);
         //]]>
         </script>
-        <script type="text/javascript" src="//d2jjzw81hqbuqv.cloudfront.net/integration/curebit-1.0.min.js"></script>
+        <script type="text/javascript" src="//d2jjzw81hqbuqv.cloudfront.net/integration/talkable-1.0.min.js"></script>
     <?php endif ?>
 
     <!-- End Talkable integration code -->
