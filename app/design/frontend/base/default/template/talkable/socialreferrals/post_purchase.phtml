@@ -22,7 +22,7 @@
             //<![CDATA[
               var _talkableq = _talkableq || [];
               _talkableq.push(["init", {
-                site_id: "<?php echo $_helper->getSiteId() ?>",
+                site_id: "tipsy-elves-1",
                 server: "https://www.talkable.com"
               }]);
 
@@ -31,10 +31,11 @@
               <?php $_event_data["traffic_source"] = "Post-checkout" ?>
               <?php $_event_data["campaign_tags"] = $_helper->getPurchaseCampaignTags() ?>
 
-              _talkableq.push(["register_purchase", <?php echo Mage::helper("core")->jsonEncode($_event_data) ?>]);
+              // _talkableq.push(["register_purchase", <?php echo Mage::helper("core")->jsonEncode($_event_data) ?>]);
+              var _talkable_purchase = <?php echo Mage::helper("core")->jsonEncode($_event_data) ?>
             //]]>
             </script>
-            <script type="text/javascript" src="//d2jjzw81hqbuqv.cloudfront.net/integration/talkable-1.0.min.js"></script>
+            <script type="text/javascript" src="//d2jjzw81hqbuqv.cloudfront.net/integration/clients/tipsyelves.min.js"></script>
         <?php else: ?>
             <!-- Order could not be found -->
         <?php endif ?>
