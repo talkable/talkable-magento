@@ -12,7 +12,7 @@
 <config>
     <modules>
         <Talkable_SocialReferrals>
-            <version>0.1.5</version>
+            <version>0.1.6</version>
         </Talkable_SocialReferrals>
     </modules>
 
@@ -80,6 +80,7 @@
         <socialreferrals>
             <general>
                 <site_id></site_id>
+                <integration_js_url>//d2jjzw81hqbuqv.cloudfront.net/integration/talkable-1.0.min.js</integration_js_url>
             </general>
 
             <purchase>

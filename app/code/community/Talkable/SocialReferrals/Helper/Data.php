@@ -20,6 +20,17 @@ class Talkable_SocialReferrals_Helper_Data extends Mage_Core_Helper_Abstract
         return $this->_getTextConfigValue("general/site_id");
     }
 
+    public function getIntegrationJsUrl()
+    {
+        $retval = $this->_getTextConfigValue("general/integration_js_url");
+
+        if ($retval == "") {
+            return "//d2jjzw81hqbuqv.cloudfront.net/integration/talkable-1.0.min.js";
+        } else {
+            return $retval;
+        }
+    }
+
     //------------------------+
     // Post-Checkout Campaign |
     //------------------------+
