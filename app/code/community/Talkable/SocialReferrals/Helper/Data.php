@@ -109,7 +109,8 @@ class Talkable_SocialReferrals_Helper_Data extends Mage_Core_Helper_Abstract
                 "customer_id" => $customer->getId(),
             ));
         } else {
-            return array("affiliate_member" => array());
+            $emptyObject = new stdClass();
+            return array("affiliate_member" => $emptyObject);
         }
     }
 
