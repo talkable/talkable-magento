@@ -12,7 +12,7 @@
 <config>
     <modules>
         <Talkable_SocialReferrals>
-            <version>0.1.6</version>
+            <version>0.1.8</version>
         </Talkable_SocialReferrals>
     </modules>
 
@@ -85,12 +85,12 @@
 
             <purchase>
                 <enabled>0</enabled>
-                <campaign_tags>default</campaign_tags>
+                <campaign_tags>post-purchase</campaign_tags>
             </purchase>
 
             <affiliate>
                 <enabled>0</enabled>
-                <campaign_tags>default</campaign_tags>
+                <campaign_tags>invite</campaign_tags>
                 <iframe_responsive>1</iframe_responsive>
                 <iframe_container>talkable-container</iframe_container>
                 <iframe_width>100%</iframe_width>
@@ -99,7 +99,7 @@
 
             <dashboard>
                 <enabled>0</enabled>
-                <campaign_tags>default</campaign_tags>
+                <campaign_tags>dashboard</campaign_tags>
                 <iframe_responsive>1</iframe_responsive>
                 <iframe_container>talkable-container</iframe_container>
                 <iframe_width>100%</iframe_width>
