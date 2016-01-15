@@ -13,7 +13,7 @@ class Talkable_SocialReferrals_Customer_DashboardController extends Mage_Core_Co
 
     public function indexAction()
     {
-        if (Mage::helper("socialreferrals")->isDashboardEnabled()) {
+        if (Mage::helper("socialreferrals")->isAdvocateDashboardEnabled()) {
             $this->loadLayout();
             $this->renderLayout();
         } else {

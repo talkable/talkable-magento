@@ -12,7 +12,7 @@
 <config>
     <modules>
         <Talkable_SocialReferrals>
-            <version>0.1.8</version>
+            <version>1.0.0</version>
         </Talkable_SocialReferrals>
     </modules>
 
@@ -80,31 +80,15 @@
         <socialreferrals>
             <general>
                 <site_id></site_id>
-                <integration_js_url>//d2jjzw81hqbuqv.cloudfront.net/integration/talkable-1.0.min.js</integration_js_url>
+                <integration_js_url>//d2jjzw81hqbuqv.cloudfront.net/integration/talkable-2.1.min.js</integration_js_url>
             </general>
 
-            <purchase>
-                <enabled>0</enabled>
-                <campaign_tags>post-purchase</campaign_tags>
-            </purchase>
-
-            <affiliate>
-                <enabled>0</enabled>
-                <campaign_tags>invite</campaign_tags>
-                <iframe_responsive>1</iframe_responsive>
-                <iframe_container>talkable-container</iframe_container>
-                <iframe_width>100%</iframe_width>
-                <iframe_height>960</iframe_height>
-            </affiliate>
-
-            <dashboard>
-                <enabled>0</enabled>
-                <campaign_tags>dashboard</campaign_tags>
-                <iframe_responsive>1</iframe_responsive>
-                <iframe_container>talkable-container</iframe_container>
-                <iframe_width>100%</iframe_width>
-                <iframe_height>960</iframe_height>
-            </dashboard>
+            <campaigns>
+                <post_purchase>0</post_purchase>
+                <invite>0</invite>
+                <advocate_dashboard>0</advocate_dashboard>
+                <floating_widget_popup>0</floating_widget_popup>
+            </campaigns>
         </socialreferrals>
     </default>
 </config>
