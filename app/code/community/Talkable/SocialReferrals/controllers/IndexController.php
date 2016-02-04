@@ -13,7 +13,7 @@ class Talkable_SocialReferrals_IndexController extends Mage_Core_Controller_Fron
 
     public function indexAction()
     {
-        if (Mage::helper("socialreferrals")->isAffiliateEnabled()) {
+        if (Mage::helper("socialreferrals")->isInviteEnabled()) {
             $this->loadLayout();
             $this->renderLayout();
         } else {

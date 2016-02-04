@@ -11,25 +11,20 @@
 
 <?php $_helper = $this->helper("socialreferrals") ?>
 
-<?php if ($_helper->isDashboardEnabled()): ?>
+<?php if ($_helper->isEnabled()): ?>
     <!-- Begin Talkable integration code -->
 
     <?php if ($_helper->getSiteId() == ""): ?>
         <!-- Talkable Site ID is blank, check your Talkable extension settings -->
     <?php else: ?>
-        <div id="talkable-container"></div>
         <script type="text/javascript">
         //<![CDATA[
           var _talkableq = _talkableq || [];
           _talkableq.push(["init", {
-            site_id: "<?php echo $_helper->getSiteId() ?>",
-            server: "https://www.talkable.com"
+            site_id: "<?php echo $_helper->getSiteId() ?>"
           }]);
 
-          <?php $_event_data = array_merge($_helper->getAffiliateData(), $_helper->getDashboardIframeOptions()) ?>
-          <?php $_event_data["campaign_tags"] = $_helper->getDashboardCampaignTags() ?>
-
-          _talkableq.push(["register_affiliate", <?php echo Mage::helper("core")->jsonEncode($_event_data) ?>]);
+          _talkableq.push(["authenticate_customer", <?php echo Mage::helper("core")->jsonEncode($_helper->getCustomerData()) ?>]);
         //]]>
         </script>
         <script type="text/javascript" src="<?php echo $_helper->getIntegrationJsUrl() ?>"></script>

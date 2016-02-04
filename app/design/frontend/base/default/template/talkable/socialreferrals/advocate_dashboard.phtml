@@ -11,17 +11,17 @@
 
 <?php $_helper = $this->helper("socialreferrals") ?>
 
-<?php if ($_helper->isInviteEnabled()): ?>
+<?php if ($_helper->isAdvocateDashboardEnabled()): ?>
     <!-- Begin Talkable integration code -->
 
     <?php if ($_helper->getSiteId() == ""): ?>
         <!-- Talkable Site ID is blank, check your Talkable extension settings -->
     <?php else: ?>
-        <div id="talkable-invite"></div>
+        <div id="talkable-dashboard"></div>
         <script type="text/javascript">
         //<![CDATA[
           _talkableq.push(["register_affiliate", {
-            campaign_template: { name: "invite" }
+            campaign_template: { name: "dashboard" }
           }]);
         //]]>
         </script>
