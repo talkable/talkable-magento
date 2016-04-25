@@ -27,7 +27,7 @@
           _talkableq.push(["authenticate_customer", <?php echo Mage::helper("core")->jsonEncode($_helper->getCustomerData()) ?>]);
         //]]>
         </script>
-        <script type="text/javascript" src="<?php echo $_helper->getIntegrationJsUrl() ?>"></script>
+        <script type="text/javascript" src="//d2jjzw81hqbuqv.cloudfront.net/integration/clients/<?php echo $_helper->getSiteId() ?>.min.js"></script>
     <?php endif ?>
 
     <!-- End Talkable integration code -->

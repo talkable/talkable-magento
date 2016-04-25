@@ -20,18 +20,6 @@ class Talkable_SocialReferrals_Helper_Data extends Mage_Core_Helper_Abstract
         return $this->_getTextConfigValue("general/site_id");
     }
 
-    public function getIntegrationJsUrl()
-    {
-        if ($retval = $this->_getTextConfigValue("general/integration_js_url")) {
-            return $retval;
-        } else {
-            return Mage::getConfig()
-                ->loadModulesConfiguration("config.xml")
-                ->getNode("default/socialreferrals/general")
-                ->integration_js_url;
-        }
-    }
-
     //--------------------+
     // Talkable Campaigns |
     //--------------------+
