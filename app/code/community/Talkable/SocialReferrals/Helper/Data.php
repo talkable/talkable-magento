@@ -25,19 +25,6 @@ class Talkable_SocialReferrals_Helper_Data extends Mage_Core_Helper_Abstract
     //--------------------+
 
     /**
-     * @return bool Whether or not Talkable Integration is enabled
-     */
-    public function isEnabled()
-    {
-        return (
-            $this->isInviteEnabled() ||
-            $this->isPostPurchaseEnabled() ||
-            $this->isAdvocateDashboardEnabled() ||
-            $this->isFloatingWidgetPopupEnabled()
-        );
-    }
-
-    /**
      * @return bool Whether or not Post Purchase Integration is enabled
      */
     public function isPostPurchaseEnabled()
