@@ -12,7 +12,7 @@
 <config>
     <modules>
         <Talkable_SocialReferrals>
-            <version>1.2.1</version>
+            <version>1.2.2</version>
         </Talkable_SocialReferrals>
     </modules>
 
@@ -83,10 +83,10 @@
             </general>
 
             <campaigns>
-                <post_purchase>0</post_purchase>
-                <invite>0</invite>
+                <post_purchase>1</post_purchase>
+                <invite>1</invite>
                 <advocate_dashboard>0</advocate_dashboard>
-                <floating_widget_popup>0</floating_widget_popup>
+                <floating_widget_popup>1</floating_widget_popup>
             </campaigns>
         </socialreferrals>
     </default>
