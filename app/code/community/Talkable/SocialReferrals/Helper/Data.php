@@ -62,18 +62,27 @@ class Talkable_SocialReferrals_Helper_Data extends Mage_Core_Helper_Abstract
 
     public function getPurchaseData($order)
     {
+        $shippingInfo = array();
         $shippingAddress = $order->getShippingAddress();
-        $countryName = Mage::getModel("directory/country")
-            ->loadByCode($shippingAddress->getCountryId())
-            ->getName();
 
-        $shippingFields = array_filter(array(
-            implode(", ", $shippingAddress->getStreet()),
-            $shippingAddress->getCity(),
-            $shippingAddress->getRegion(),
-            $shippingAddress->getPostcode(),
-            $countryName,
-        ));
+        if ($shippingAddress) {
+            $countryName = Mage::getModel("directory/country")
+                ->loadByCode($shippingAddress->getCountryId())
+                ->getName();
+
+            $shippingFields = array_filter(array(
+                implode(", ", $shippingAddress->getStreet()),
+                $shippingAddress->getCity(),
+                $shippingAddress->getRegion(),
+                $shippingAddress->getPostcode(),
+                $countryName,
+            ));
+
+            $shippingInfo = array(
+                "shipping_zip" => $shippingAddress->getPostcode(),
+                "shipping_address" => implode(", ", $shippingFields),
+            );
+        }
 
         $retval = array(
             "customer" => array(
@@ -82,15 +91,13 @@ class Talkable_SocialReferrals_Helper_Data extends Mage_Core_Helper_Abstract
                 "last_name"    => $order->getCustomerLastname(),
                 "customer_id"  => $order->getCustomerId(),
             ),
-            "purchase" => array(
+            "purchase" => array_merge($shippingInfo, array(
                 "order_number" => $order->getIncrementId(),
                 "order_date"   => $order->getCreatedAt(),
                 "subtotal"     => $this->_normalizeAmount($order->getSubtotal()),
                 "coupon_code"  => $order->getCouponCode(),
                 "items"        => array(),
-                "shipping_zip" => $shippingAddress->getPostcode(),
-                "shipping_address" => implode(", ", $shippingFields),
-            ),
+            )),
         );
 
         foreach ($order->getAllVisibleItems() as $product) {
