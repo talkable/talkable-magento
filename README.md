@@ -1,3 +1,3 @@
 Talkable integration for Magento
 ================================
-[Available at Magento Connect store](http://www.magentocommerce.com/magento-connect/talkable-customizable-refer-a-friend-programs.html)
+[Available at Magento Connect store](https://www.magentocommerce.com/magento-connect/referral-marketing-made-easy-talkable.html)
