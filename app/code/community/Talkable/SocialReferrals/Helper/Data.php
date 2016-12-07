@@ -84,6 +84,13 @@ class Talkable_SocialReferrals_Helper_Data extends Mage_Core_Helper_Abstract
             );
         }
 
+        $subtotal = (float) $order->getSubtotal();
+        if ($order->getDiscountAmount() < 0) {
+            // getDiscountAmount() returns negative number formatted as string, e.g. "-10.0000"
+            // That's why we add it instead of subtracting.
+            $subtotal += (float) $order->getDiscountAmount();
+        }
+
         $retval = array(
             "customer" => array(
                 "email"        => $order->getCustomerEmail(),
@@ -94,7 +101,7 @@ class Talkable_SocialReferrals_Helper_Data extends Mage_Core_Helper_Abstract
             "purchase" => array_merge($shippingInfo, array(
                 "order_number" => $order->getIncrementId(),
                 "order_date"   => $order->getCreatedAt(),
-                "subtotal"     => $this->_normalizeAmount($order->getSubtotal()),
+                "subtotal"     => $this->_normalizeAmount($subtotal),
                 "coupon_code"  => $order->getCouponCode(),
                 "items"        => array(),
             )),
