@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
     <name>talkable</name>
-    <version>1.4.0</version>
+    <version>2.0.0</version>
     <stability>stable</stability>
     <license uri="http://opensource.org/licenses/mit-license.php">MIT License</license>
     <channel>community</channel>
@@ -20,11 +20,11 @@ See more at Talkable.com</description>
 - Advocate Dashboard Integration&#xD;
 - Floating Widget Popup Integration&#xD;
 &#xD;
-Note: Extension version 1.4 works with Talkable Integration library version 3.0 or higher.</notes>
+Note: Extension version 2.0 works with Talkable Integration library version 3.0.2 or higher.</notes>
     <authors><author><name>Talkable</name><user>talkable</user><email>sub@talkable.com</email></author></authors>
-    <date>2016-12-07</date>
-    <time>12:56:45</time>
-    <contents><target name="magecommunity"><dir name="Talkable"><dir name="SocialReferrals"><dir name="Block"><dir name="Multishipping"><file name="Purchase.php" hash="6eaab3557bdf97f40a77c7b6e040e483"/></dir><file name="Purchase.php" hash="5cd37269372b88cec4657bf85077c1a4"/></dir><dir name="Helper"><file name="Data.php" hash="79ae6a66051644b0a083b1d844a78641"/></dir><dir name="Model"><file name="Observer.php" hash="b9e5a92a24b018b14ccc64658326e92e"/></dir><dir name="controllers"><dir name="Customer"><file name="DashboardController.php" hash="3f715ff823d8b2709d3b6ee106685513"/></dir><file name="IndexController.php" hash="c08758b6a50bbc95ce09773818a6a7c4"/></dir><dir name="etc"><file name="adminhtml.xml" hash="3f86a3e4bf980fa36aba8c0e33737e59"/><file name="config.xml" hash="57da2f8bfd1e28e5ce0ee18f8ceb21f4"/><file name="system.xml" hash="e3ef9c8b74fff498a9dc42db1a86a21c"/></dir></dir></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><dir name="talkable"><file name="socialreferrals.xml" hash="c4731fc832bf3cdbe4fec6f6cd336549"/></dir></dir><dir name="template"><dir name="talkable"><dir name="socialreferrals"><file name="advocate_dashboard.phtml" hash="a66f1b41c07be5c3065b4d3822641c7d"/><file name="floating_widget_popup.phtml" hash="5d4c31ea9e5c2d9e5f7d4785bfa9636e"/><file name="head.phtml" hash="6628579af042007d653fbb05dcc98339"/><file name="invite.phtml" hash="42de72e1b67724c361eb0621783293b0"/><file name="post_purchase.phtml" hash="5f64e0657fc80afcc28a27809a020408"/></dir></dir></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Talkable_SocialReferrals.xml" hash="ed1152e3c169ac8e9d33219e5ec9fb47"/></dir></target></contents>
+    <date>2016-12-15</date>
+    <time>14:46:15</time>
+    <contents><target name="magecommunity"><dir name="Talkable"><dir name="SocialReferrals"><dir name="Block"><dir name="Multishipping"><file name="Purchase.php" hash="6eaab3557bdf97f40a77c7b6e040e483"/></dir><file name="Purchase.php" hash="5cd37269372b88cec4657bf85077c1a4"/></dir><dir name="Helper"><file name="Data.php" hash="79ae6a66051644b0a083b1d844a78641"/></dir><dir name="Model"><file name="Observer.php" hash="b9e5a92a24b018b14ccc64658326e92e"/></dir><dir name="controllers"><dir name="Customer"><file name="DashboardController.php" hash="3f715ff823d8b2709d3b6ee106685513"/></dir><file name="IndexController.php" hash="c08758b6a50bbc95ce09773818a6a7c4"/></dir><dir name="etc"><file name="adminhtml.xml" hash="3f86a3e4bf980fa36aba8c0e33737e59"/><file name="config.xml" hash="c1963616f13c14b372455e0bb8c0146a"/><file name="system.xml" hash="e3ef9c8b74fff498a9dc42db1a86a21c"/></dir></dir></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><dir name="talkable"><file name="socialreferrals.xml" hash="c4731fc832bf3cdbe4fec6f6cd336549"/></dir></dir><dir name="template"><dir name="talkable"><dir name="socialreferrals"><file name="advocate_dashboard.phtml" hash="ede1a97a100b71a593ec55e58fb51622"/><file name="floating_widget_popup.phtml" hash="e2fe3129bcfdbc79b61c48811812b721"/><file name="head.phtml" hash="6628579af042007d653fbb05dcc98339"/><file name="invite.phtml" hash="21dc3939039f589c9539ba691abeb09b"/><file name="post_purchase.phtml" hash="3d44c2279efeff5f05656e2d3e996263"/></dir></dir></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Talkable_SocialReferrals.xml" hash="ed1152e3c169ac8e9d33219e5ec9fb47"/></dir></target></contents>
     <compatible/>
     <dependencies><required><php><min>5.2.0</min><max>6.0.0</max></php></required></dependencies>
 </package>
